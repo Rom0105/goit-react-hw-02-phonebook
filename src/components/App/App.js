@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import Container from '../Container/Container';
 import ContactForm from '../ContactForm/ContactForm';
 import Filter from '../Filter/Filter';
 import ContactList from '../ContactList/ContactList';
-import '../App/App.module.css';
+import style from '../App/App.module.css';
 
 class App extends Component {
   state = {
@@ -16,9 +17,9 @@ class App extends Component {
   };
 
   addContact = newContact => {
-    const dublicateName = this.state.contacts.find(contact => contact.name === newContact.name);
+    const duplicateName = this.state.contacts.find(contact => contact.name === newContact.name);
 
-    if (dublicateName) {
+    if (duplicateName) {
       alert(`${newContact.name} is already on contacts`);
       return;
     }
@@ -50,13 +51,13 @@ class App extends Component {
     const { filter } = this.state;
     const filteredResults = this.filterContacts();
     return (
-      <div>
-        <h2>Phonebook</h2>
+      <Container>
+        <h2 className={style.title}>Phonebook</h2>
         <ContactForm onSubmit={this.addContact} />
-        <h2>Contacts</h2>
+        <h2 className={style.title}>Contacts</h2>
         <Filter value={filter} onChange={this.changeFilter} />
         <ContactList contacts={filteredResults} onDeleteContact={this.deleteContact} />
-      </div>
+      </Container>
     );
   }
 }

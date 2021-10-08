@@ -30,3 +30,9 @@ li {
   margin: 0;
   padding: 0;
 }
+
+.title {
+  margin-top: 45px;
+
+  text-align: center;
+}
