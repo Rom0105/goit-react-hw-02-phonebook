@@ -1,4 +1,5 @@
 import style from '../ContactItem/ContactItem.module.css';
+
 const ContactItem = ({ contact, onDeleteContact }) => {
   return (
     <li className={style.li}>
